@@ -1,37 +1,50 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
+
 
 export default function Home() {
+
+	const [products, setProducts] = useState([]);
+	const [productsCount, setProductsCount] = useState(0);
+
+	useEffect(() => {
+		// Отримання даних з API за допомогою fetch
+		fetch("https://6558482de93ca47020a93e41.mockapi.io/catalog")
+			.then((response) => response.json())
+			.then((products) => {
+				setProductsCount(products.length);
+				setProducts(products);
+				console.log(products);
+			})
+			.catch((error) => console.error("Помилка при отриманні даних:", error));
+	  }, []);
+
 	return (
-		<div class="catalog" id="catalog">
-			<div class="container">
-				<div class="catalog__header">
-					<div class="catalog__select-category dropdown">
-						<h3 class="dropdown-btn">Вибрати категорію</h3>
-						<div class="dropdown-content" id="category-list">
-							<Link to="#" class="dropdown-item">Скинути вибір</Link>
+		<div className="catalog" id="catalog">
+			<div className="container">
+				<div className="catalog__header">
+					<div className="catalog__select-category dropdown">
+						<h3 className="dropdown-btn">Вибрати категорію</h3>
+						<div className="dropdown-content" id="category-list">
+							<Link to="#" className="dropdown-item">Скинути вибір</Link>
 						</div>
 					</div>
-					<h3 class="catalog__products-summ">Знайдено товарів: <span id="view-count-products">24</span></h3>
+					<h3 className="catalog__products-summ">Знайдено товарів: <span id="view-count-products">{productsCount}</span></h3>
 				</div>
 
-				<div class="catalog__content" id="catalog-products">
+				<div className="catalog__content">
 
-					<div class="card-product">
-						<div class="card-product__img-hold">
-							<img src="img/catalog/1.jpg" alt="" class="card-product__img"></img>
-						</div>
-						<div class="card-product__text-hold">
-							<a href="#" class="card-product__title-link">Планшет Lenovo Tab M10 Plus 4/128 Grey</a>
-							<span class="card-product__price">8 999 грн <small>12 999 грн</small></span>
-							<a href="#" class="card-product__btn-add">
-								<svg class="icon icon-cart"><use href="#icon-cart-add"></use></svg>
-							</a>
-						</div>
-					</div>
+					{products.map((product) => (
+						<ProductCard key={product.id} product={product} />
+					))}
 
 				</div>
 
 			</div>
 		</div>
 	);
-  }
+}
+
+
+  
