@@ -1,7 +1,6 @@
 import Catalog from '../components/Catalog';
 
-
-export default function Home() {
+export default function Category() {
 
 	return <Catalog />;
 }

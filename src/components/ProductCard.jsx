@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
     return (
         <div className="card-product">
             <div className="card-product__img-hold">
-                <img src={'img/catalog/' + img} alt={title} className="card-product__img" />
+                <img src={'/img/catalog/' + img} alt={title} className="card-product__img" />
             </div>
             <div className="card-product__text-hold">
 				<div className="card-product__title-link">{title}</div>

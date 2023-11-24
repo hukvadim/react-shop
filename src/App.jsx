@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Delivery from "./pages/Delivery";
 import Contacts from "./pages/Contacts";
 import Search from "./pages/Search";
+import Category from "./pages/Category";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="/category/:categoryId" element={<Category />} />
           <Route path="about" element={<About />} />
           <Route path="delivery" element={<Delivery />} />
           <Route path="contacts" element={<Contacts />} />

@@ -238,6 +238,7 @@ svg {
     border-radius: 10px;
 }
 
+.dropdown-content .dropdown-item.active,
 .dropdown-content .dropdown-item:hover {
     background-color: #EBF1FC;
     color: var(--pr);
