@@ -1,9 +1,9 @@
 import Catalog from '../components/Catalog';
 
 
-export default function Home() {
+export default function Home({ cartState, dispatch }) {
 
-	return <Catalog />;
+	return <Catalog cartState={cartState} dispatch={dispatch} />;
 }
 
 

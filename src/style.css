@@ -518,6 +518,7 @@ svg {
     padding: 14px 12px 14px 14px;
     font-size: 18px;
     line-height: 1;
+    cursor: pointer;
 }
 
 .card-product .card-product__btn-add:hover {
@@ -847,7 +848,7 @@ svg {
     justify-content: center;
 }
 .cart-added-list .cart-added-list__item-list .no-result {
-    --img-size: 40px;
+    --img-size: 96px;
     --text-weight: 500;
     --text-color: #e01d1d;
 }

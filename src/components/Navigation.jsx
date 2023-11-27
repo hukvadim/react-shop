@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { linksMain } from "./Links";
 
-export default function Navigation() {
-  return (
+export default function Navigation({ cartState }) {
+
+	return (
 	<div className="navigation">
 		<div className="container">
 			<div className="navigation__hold">
@@ -29,7 +30,7 @@ export default function Navigation() {
 						</li>
 						<li className="navigation__item">
 							<Link to="/order" className="navigation__item-link">
-								<span className="cart-added-summ js-cart-added-summ">0</span>
+								<span className={`cart-added-summ js-cart-added-summ ${cartState.cartCount > 0 ? 'show-num' : ''}`}>{cartState.cartCount}</span>
 								<svg className="icon icon-cart-bag"><use href="#icon-cart-bag"></use></svg>
 							</Link>
 						</li>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getData, { apiUrl} from '../api/getData';
-import CatalogHeader from '../components/CatalogHeader';
-import CatalogContent from '../components/CatalogContent';
+import CatalogHeader from './CatalogHeader';
+import CatalogContent from './CatalogContent';
 
-function Catalog() {
+function Catalog({ cartState, dispatch }) {
 	
 	const { categoryId } = useParams(); // Отримуємо параметр зі шляху
 
@@ -18,9 +18,12 @@ function Catalog() {
 		getData(apiUrl.category).then((category) => {
 			setCategories(category);
 		})
+
+		// Дивимося чи існує категорія і формуємо відповідний url
+		const url = (typeof categoryId === 'undefined') ? apiUrl.catalog : apiUrl.catalogByCategory + categoryId;
 	
 		// Отримуємо товари каталогу
-		getData(apiUrl.catalog).then((products) => {
+		getData(url).then((products) => {
 	
 			// Задаємо підрахунок товарів
 			setProductsCount(products.length);
@@ -29,15 +32,15 @@ function Catalog() {
 			setProducts(products);
 		})
 	
-	}, []);
+	}, [categoryId]);
 
 	return (
-		<div className="catalog" id="catalog">
+		<div className="catalog">
 			<div className="container">
 					
 				<CatalogHeader categories={categories} categoryId={categoryId} productsCount={productsCount} />
 
-				<CatalogContent products={products} />
+				<CatalogContent products={products} cartState={cartState} dispatch={dispatch} />
 					
 			</div>
 		</div>
