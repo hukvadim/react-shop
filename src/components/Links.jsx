@@ -1,12 +1,14 @@
+import config from '../utils/config';
+
 export const linksMain = [
-    { link: "/", val: "Головна" },
-    { link: "/delivery", val: "Доставка і оплата" },
-    { link: "/contacts", val: "Контакти" },
+    { link: config.baseUrl, val: "Головна" },
+    { link: config.baseUrl + "delivery", val: "Доставка і оплата" },
+    { link: config.baseUrl + "contacts", val: "Контакти" },
 ];
 
 export const linksFooter = [
-    { link: "/", val: "Каталог" },
-    { link: "/about", val: "Про нас" },
-    { link: "/delivery", val: "Доставка і оплата" },
-    { link: "/contacts", val: "Контакти" },
+    { link: config.baseUrl + "", val: "Каталог" },
+    { link: config.baseUrl + "about", val: "Про нас" },
+    { link: config.baseUrl + "delivery", val: "Доставка і оплата" },
+    { link: config.baseUrl + "contacts", val: "Контакти" },
 ];
