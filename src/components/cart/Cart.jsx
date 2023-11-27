@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import config from '../../utils/config';
 import CartNoResult from './CartNoResult';
+import CartItem from './CartItem';
 import { getCartVisibility, setCartVisibility } from '../../utils/utils';
 
 function Cart({ cartState, dispatch }) {
@@ -13,8 +14,6 @@ function Cart({ cartState, dispatch }) {
 
 	// Показуємо і приховуємо корзину замовлених товарів
 	const toggleCartVisibility = () => {
-
-		// Використовуємо посилання на DOM-елемент, щоб змінити клас
 		setCartVisibilityEl(!cartVisibility);
 		setCartVisibility(!cartVisibility);
 	};
@@ -43,29 +42,22 @@ function Cart({ cartState, dispatch }) {
             </button>
             <div className={`cart-added-list__item-list ${cartVisibility ? 'show' : ''}`}>
 
-            {cart.length === 0
-                
-                ? <CartNoResult />
-                
-                : cart.map(({ id, title, img, price, count }, index) => (
-                    
-                // Відображення товарів з Local Storage
-                <div key={index} className="cart-added-list__item">
-                    <button className="cart-added-list__item-btn-delete btn-light" onClick={() => delCartProduct(id)}>
-                        <svg className="icon icon-close"><use href="#icon-close"></use></svg>
-                    </button>
-                    <img src={config.pathImg + img} alt="" className="cart-added-list__item-img" />
-                    <p className="cart-added-list__item-text-hold">
-                        <span className="cart-added-list__item-title-link">{title}</span>
-                        <span className="cart-added-list__item-meta-list">
-                            <span className="cart-added-list__item-meta">Ціна: {price} грн</span>
-                        </span>
-                    </p>
-                    <input type="text" className="cart-added-list__item-count" value={count} readOnly/>
-                    <button className="cart-added-list__item-btn-plus btn-light" onClick={() => increaseItemCount(id)}></button>
-                    <button className="cart-added-list__item-btn-minus btn-light" onClick={() => decreaseItemCount(id)}></button>
-                </div>
-            ))}
+            {cart.length === 0 ? (
+                <CartNoResult />
+            ) : (
+                cart.map((product, index) => {
+                    const cartItemProps = {
+                        key: index,
+                        pathImg: config.pathImg,
+                        product,
+                        delCartProduct,
+                        increaseItemCount,
+                        decreaseItemCount,
+                    };
+
+                    return <CartItem {...cartItemProps} />;
+                })
+            )}
                 
             </div>
         </div>

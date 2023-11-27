@@ -8,6 +8,7 @@ function CatalogHeader( {categories, categoryId, productsCount} ) {
 				<div className="dropdown-content" id="category-list">
 					
 				<Link to="/" className="dropdown-item">Скинути вибір</Link>
+				
 				{categories.map(({title, id}) => (
 					<Link to={'/category/' + id} className={`dropdown-item ${categoryId === id ? 'active' : ''}`} key={id}>{title}</Link>
 				))}

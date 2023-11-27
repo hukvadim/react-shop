@@ -6,7 +6,7 @@ import CatalogContent from './CatalogContent';
 
 function Catalog({ cartState, dispatch }) {
 	
-	const { categoryId } = useParams(); // Отримуємо параметр зі шляху
+	const { categoryId } = useParams();
 
 	const [categories, setCategories] = useState([]);
 	const [products, setProducts] = useState([]);
@@ -35,13 +35,10 @@ function Catalog({ cartState, dispatch }) {
 	}, [categoryId]);
 
 	return (
-		<div className="catalog" id='catalog'>
+		<div className="catalog">
 			<div className="container">
-					
 				<CatalogHeader categories={categories} categoryId={categoryId} productsCount={productsCount} />
-
 				<CatalogContent products={products} cartState={cartState} dispatch={dispatch} />
-					
 			</div>
 		</div>
 	);

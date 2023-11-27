@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Delivery from "./pages/Delivery";
 import Contacts from "./pages/Contacts";
+import Order from "./pages/Order";
 import Search from "./pages/Search";
 import Category from "./pages/Category";
 
@@ -31,6 +32,7 @@ function App() {
                     <Route path="delivery" element={<Delivery />} />
                     <Route path="contacts" element={<Contacts />} />
                     <Route path="search" element={<Search cartState={cartState} dispatch={dispatch} />} />
+                    <Route path="order" element={<Order cartState={cartState} dispatch={dispatch} />} />
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>

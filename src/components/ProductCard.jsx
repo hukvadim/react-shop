@@ -1,7 +1,7 @@
 import React from "react";
 import config from '../utils/config';
 
-export default function ProductCard({ product, cartState, dispatch }) {
+export default function ProductCard({ product, dispatch }) {
 
 	const { id, title, img, price, oldprice } = product;
 
