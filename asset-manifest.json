@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/hukvadim/react-shop/static/css/main.45efac36.css",
-    "main.js": "/hukvadim/react-shop/static/js/main.93c33f45.js",
-    "index.html": "/hukvadim/react-shop/index.html",
-    "main.45efac36.css.map": "/hukvadim/react-shop/static/css/main.45efac36.css.map",
-    "main.93c33f45.js.map": "/hukvadim/react-shop/static/js/main.93c33f45.js.map"
+    "main.css": "/react-shop/static/css/main.45efac36.css",
+    "main.js": "/react-shop/static/js/main.93c33f45.js",
+    "index.html": "/react-shop/index.html",
+    "main.45efac36.css.map": "/react-shop/static/css/main.45efac36.css.map",
+    "main.93c33f45.js.map": "/react-shop/static/js/main.93c33f45.js.map"
   },
   "entrypoints": [
     "static/css/main.45efac36.css",
