@@ -1,11 +1,6 @@
 import { useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Статичні блоки
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
-import Cart from "./components/cart/Cart";
-
 // Сторінки сайту
 import NoMatch from "./pages/NoMatch";
 import Layout from "./pages/Layout";

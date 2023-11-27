@@ -29,6 +29,10 @@ function cartReducer(state, action) {
         case "decreaseItemCount":
             return decreaseItemCount(state, action.productId);
 
+        // Очищуємо корзину замолень
+        case "cleanCart":
+            return cleanCart(state);
+
         default:
             return state;
     }
@@ -96,6 +100,11 @@ function decreaseItemCount(state, productIdToDecrease) {
     });
 
     return stateObj(state, updatedCart)
+}
+
+// Функція для очищення корзини замовлень
+function cleanCart(state) {
+    return stateObj(state, []);
 }
 
 export { initialCartState, cartReducer };
