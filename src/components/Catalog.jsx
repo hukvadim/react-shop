@@ -35,7 +35,7 @@ function Catalog({ cartState, dispatch }) {
 	}, [categoryId]);
 
 	return (
-		<div className="catalog">
+		<div className="catalog" id='catalog'>
 			<div className="container">
 					
 				<CatalogHeader categories={categories} categoryId={categoryId} productsCount={productsCount} />

@@ -5,12 +5,12 @@ import Cart from '../components/cart/Cart';
 
 export default function Layout({ cartState, dispatch }) {
 	return (
-	  <div>
+	  <>
 		<Navigation cartState={cartState} />
 		<Outlet />
 		<Footer />
 		<Cart cartState={cartState} dispatch={dispatch} />
-	  </div>
+	  </>
 	);
 }
 

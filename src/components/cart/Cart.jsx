@@ -24,6 +24,16 @@ function Cart({ cartState, dispatch }) {
         dispatch({ type: "removeFromCart", productId })
     };
 
+    // Добавляємо кількість товарів
+    const increaseItemCount = (productId) => {
+        dispatch({ type: "increaseItemCount", productId });
+    };
+
+    // Забираємо кількість товарів
+    const decreaseItemCount = (productId) => {
+        dispatch({ type: "decreaseItemCount", productId });
+    };
+
 
     return (
         <div className="cart-added-list">
@@ -51,9 +61,9 @@ function Cart({ cartState, dispatch }) {
                             <span className="cart-added-list__item-meta">Ціна: {price} грн</span>
                         </span>
                     </p>
-                    <input type="text" className="cart-added-list__item-count" value={count} onChange={(e) => { }}/>
-                    <button className="cart-added-list__item-btn-plus btn-light"></button>
-                    <button className="cart-added-list__item-btn-minus btn-light"></button>
+                    <input type="text" className="cart-added-list__item-count" value={count} readOnly/>
+                    <button className="cart-added-list__item-btn-plus btn-light" onClick={() => increaseItemCount(id)}></button>
+                    <button className="cart-added-list__item-btn-minus btn-light" onClick={() => decreaseItemCount(id)}></button>
                 </div>
             ))}
                 
